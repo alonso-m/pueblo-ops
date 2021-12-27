@@ -1,0 +1,20 @@
+# Place "config.txt" changes (dtparam, dtoverlay, disable_overscan, etc.) in
+# this file. Please refer to the README file for a description of the various
+# configuration files on the boot partition.
+
+dtparam=poe_fan_temp0=75000,poe_fan_temp0_hyst=3000
+dtparam=poe_fan_temp1=77000,poe_fan_temp1_hyst=2000
+
+# Overclock from 1.5Ghz to 1.75Ghz for the CPU
+#over_voltage=2
+#arm_freq=1750
+
+# Disable bluetooth and wifi
+dtoverlay=disable-wifi
+dtoverlay=disable-bt
+
+# Disable activity and power leds for saving power
+#dtparam=act_led_trigger=none
+#dtparam=act_led_activelow=off
+#dtparam=pwr_led_trigger=none
+#dtparam=pwr_led_activelow=off

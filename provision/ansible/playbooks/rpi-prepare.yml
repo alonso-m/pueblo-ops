@@ -1,0 +1,28 @@
+---
+- hosts:
+    - master
+  become: true
+  gather_facts: true
+  any_errors_fatal: true
+  tasks:
+    - name: Enabling cgroup options at boot
+      copy:
+        src: cmdline.txt
+        dest: /boot/firmware/cmdline.txt
+        owner: root
+        group: root
+        mode: 0755
+      register: cmdline
+
+    - name: Changing fan temperatures and enabling power saving features
+      copy:
+        src: usercfg.txt
+        dest: /boot/firmware/usercfg.txt
+        owner: root
+        group: root
+        mode: 0755
+      register: usercfg
+
+    - name:  Reboot the machine with all defaults
+      reboot:
+      when: cmdline.changed or usercfg.changed

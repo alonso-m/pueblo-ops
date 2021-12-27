@@ -1,0 +1,40 @@
+---
+name: Schedule - Update KaH common library chart
+
+on: # yamllint disable-line rule:truthy
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */4 * * *"
+
+jobs:
+  main:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - uses: azure/setup-helm@v1
+        with:
+          version: v3.6.3
+
+      - run: helm repo add k8s-at-home-library https://library-charts.k8s-at-home.com
+
+      - run: helm repo update
+
+      - run: helm dep update
+        working-directory: charts/kah-common
+
+      - uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: "renovate-kah-library-chart"
+          delete-branch: true
+          title: "chore(deps): update KaH common library chart"
+          signoff: true
+          assignees: "alonso-m"
+          commit-message: "chore(deps): update KaH common library chart"
+          body: |
+            Update the kah library chart
+          labels: renovate/helm-chart

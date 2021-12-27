@@ -1,0 +1,21 @@
+{
+    "packageRules": [
+      {
+        "matchDatasources": [
+          "helm"
+        ],
+        "automerge": true,
+        "automergeType": "branch",
+        "requiredStatusChecks": null,
+        "matchUpdateTypes": [
+          "minor",
+          "patch"
+        ],
+        "matchPackageNames": [
+          "kube-prometheus-stack",
+          "grafana",
+          "thanos"
+        ]
+      }
+    ]
+  }
