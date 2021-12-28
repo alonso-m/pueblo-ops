@@ -34,7 +34,7 @@ spec:
 
     config:
       settings:
-        clustername: home-cluster
+        clustername: pueblo
       recommendations: false
 
     podAnnotations:

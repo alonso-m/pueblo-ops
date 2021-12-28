@@ -28,7 +28,7 @@ spec:
             - name: vip_arp
               value: "true"
             - name: vip_interface
-              value: "eth0"
+              value: "enp0s31f6"
             - name: port
               value: "6443"
             - name: vip_cidr
@@ -40,23 +40,17 @@ spec:
             - name: svc_enable
               value: "false"
             - name: vip_address
-              value: "192.168.2.199"
-            - name: vip_leaseduration
-              value: "50"
-            - name: vip_renewdeadline
-              value: "30"
-            - name: vip_retryperiod
-              value: "10"
+              value: "192.168.1.199"
           securityContext:
             capabilities:
               add:
                 - NET_ADMIN
                 - NET_RAW
                 - SYS_TIME
-      # hostAliases:
-      #   - hostnames:
-      #       - kubernetes
-      #     ip: 127.0.0.1
+      hostAliases:
+        - hostnames:
+            - kubernetes
+          ip: 127.0.0.1
       hostNetwork: true
       nodeSelector:
         node-role.kubernetes.io/master: "true"

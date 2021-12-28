@@ -1,6 +1,6 @@
 {
   "extends": [
-    "github>alonso-m/home-cluster//.github/renovate/autoMerge"
+    "github>alonso-m/pueblo-ops//.github/renovate/autoMerge"
   ],
   "enabled": true,
   "semanticCommits": "enabled",
