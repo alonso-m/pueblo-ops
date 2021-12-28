@@ -17,7 +17,7 @@ k3s_become_for_all: true
 k3s_debug: false
 
 # (bool) Enable etcd embedded datastore
-k3s_etcd_datastore: true
+k3s_etcd_datastore: false
 
 # (bool) Allow the use of unsupported configurations in k3s
 k3s_use_unsupported_config: true
@@ -32,7 +32,7 @@ k3s_server_manifests_urls:
 
 # (list) A flat list of templates to deploy on the primary control plane
 # /var/lib/rancher/k3s/server/manifests
-k3s_server_manifests_templates:
+# k3s_server_manifests_templates:
 #  - "calico-installation.yaml.j2"
-  - "kube-vip-rbac.yaml.j2"
-  - "kube-vip-daemonset.yaml.j2"
+  # - "kube-vip-rbac.yaml.j2"
+  # - "kube-vip-daemonset.yaml.j2"

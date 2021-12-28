@@ -3,9 +3,6 @@ kind: Kustomization
 resources:
   - backups.yaml
   - cert-manager.yaml
-  - databases.yaml
-  - development.yaml
-  - downloads.yaml
   - monitoring.yaml
   - networking.yaml
   - openebs.yaml

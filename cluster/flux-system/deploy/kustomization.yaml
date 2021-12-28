@@ -5,9 +5,6 @@ resources:
   - cert-manager.yaml
   - cluster-secrets.sops.yaml
   - cluster-settings.yaml
-  - databases.yaml
-  - development.yaml
-  - downloads.yaml
   - kube-system.yaml
   - monitoring.yaml
   - networking.yaml
